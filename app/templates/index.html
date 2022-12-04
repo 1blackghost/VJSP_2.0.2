@@ -78,10 +78,17 @@
                   <button onclick='' id="scroll" class="scroll"><i class="fa fa-sort-down"></i></button>
               </div>
           </div>
-                
-            <form  class="form1" id="searchForm" name="searchForm" method="">
-                  <button type="" class="upload"><i class="fa fa-paperclip"></i></button>
-                  
+          <form id="file_upload" action = "/success" method = "post" enctype="multipart/form-data">
+            <input type="file" name="file" />
+            <input type = "submit" value="Upload">
+
+        
+          </form>
+          
+          <button type="" onlick="openBox()" class="upload"><i class="fa fa-paperclip"></i></button>
+
+          <form  class="form1" id="searchForm" name="searchForm" method="">
+
                         <input autofocus name="text" type="text" id="text" autocomplete="off"  required placeholder="Type Message here">
                         <button type="submit" id="send" class="send" ><i class="fa fa-send"></i></button>
                 </form>
@@ -91,7 +98,18 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 
 <script>
+    function openBox(){
+        //show the upload window
+        document.getElementById("file_upload").style.display="none";
 
+    }
+    function hideBox(){
+        //hides the upload window
+        document.getElementById("file_upload").style.display="block";
+
+    }
+    //excutes only once an page load...
+    hideBox();
     function colorChange(e){
         if(document.getElementById(e).style.color==="black"){
             document.getElementById(e).style.color="red";
